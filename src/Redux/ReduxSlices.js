@@ -12,8 +12,11 @@ export const pizzaSlice = createSlice({
     storeCartData: (state, action) => {
       state.cartData = action.payload;
     },
+    deleteCartData: (state, action) => {
+      state.cartData = state.cartData.filter((cart) => cart.pizzaName !== action.payload)
+    }
   },
 });
 
-export const { storeCartData } = pizzaSlice.actions;
+export const { storeCartData, deleteCartData } = pizzaSlice.actions;
 export default pizzaSlice.reducer;
