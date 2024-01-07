@@ -10,6 +10,7 @@ import {
   Center,
   Input,
 } from "@chakra-ui/react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { storeCartData, deleteCartData } from "../Redux/ReduxSlices";
 import { rupiah } from "../utils/currencyConvert";
@@ -65,7 +66,10 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
           <Button colorScheme="blue" onClick={() => addItemQty(itemName)}>
             +
           </Button>
-          <Button colorScheme="red" onClick={() => dispatch(deleteCartData(itemName))}>
+          <Button
+            colorScheme="red"
+            onClick={() => dispatch(deleteCartData(itemName))}
+          >
             Remove
           </Button>
         </HStack>
