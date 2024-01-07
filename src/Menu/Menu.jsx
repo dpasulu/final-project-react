@@ -1,8 +1,10 @@
 import React from "react";
 import Card from "./ProductCard";
 import { SimpleGrid, Box } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 export default function Menu() {
+  const getSearchKeyword = useSelector((state) => state.pizza.searchKeyword);
   const pizzaData = [
     {
       img: "https://static-cdn-ph.pizzahut.co.id/cdn-cgi/image/quality=100,format=auto,width=213/https://static-cdn-ph.pizzahut.co.id/uploads/temp/sku-smoked-beef-topshot-final-1-1703057377215.png",
@@ -75,11 +77,15 @@ export default function Menu() {
   ];
   return (
     <SimpleGrid columns={3} spacing={5} w="75vw">
-      {pizzaData.map((pizza) => (
-        <Box>
-          <Card cardContent={pizza}></Card>
-        </Box>
-      ))}
+      {pizzaData
+        .filter((data) =>
+          data.pizzaName.toLowerCase().includes(getSearchKeyword.toLowerCase())
+        )
+        .map((pizza) => (
+          <Box>
+            <Card cardContent={pizza}></Card>
+          </Box>
+        ))}
     </SimpleGrid>
   );
 }

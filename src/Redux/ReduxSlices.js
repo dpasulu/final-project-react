@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartData: [],
+  searchKeyword: "",
 };
 
 export const pizzaSlice = createSlice({
@@ -13,10 +14,16 @@ export const pizzaSlice = createSlice({
       state.cartData = action.payload;
     },
     deleteCartData: (state, action) => {
-      state.cartData = state.cartData.filter((cart) => cart.pizzaName !== action.payload)
-    }
+      state.cartData = state.cartData.filter(
+        (cart) => cart.pizzaName !== action.payload
+      );
+    },
+    storeSearchKeyword: (state, action) => {
+      state.searchKeyword = action.payload;
+    },
   },
 });
 
-export const { storeCartData, deleteCartData } = pizzaSlice.actions;
+export const { storeCartData, storeSearchKeyword, deleteCartData } =
+  pizzaSlice.actions;
 export default pizzaSlice.reducer;
