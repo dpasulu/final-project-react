@@ -16,10 +16,18 @@ export default function Bill() {
 
   return getCartData.length !== 0 ? (
     <Stack>
-      <h1>Price : {rupiah(price)}</h1>
-      <h1>PPN : {rupiah((price * 10) / 100)}</h1>
-      <h1>Service Charge : {rupiah((price * 5) / 100)}</h1>
-      <h1>Total Price : {rupiah(totalPrice)}</h1>
+      <h1>
+        Price : <b>{rupiah(price)}</b>{" "}
+      </h1>
+      <h1>
+        PPN :<b>{rupiah((price * 10) / 100)} </b>
+      </h1>
+      <h1>
+        Service Charge : <b>{rupiah((price * 5) / 100)}</b>
+      </h1>
+      <h1>
+        Total Price : <b>{rupiah(totalPrice)}</b>{" "}
+      </h1>
     </Stack>
   ) : (
     ""
