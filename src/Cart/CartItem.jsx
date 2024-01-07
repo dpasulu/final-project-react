@@ -8,6 +8,7 @@ import {
   Image,
   HStack,
   Center,
+  Input,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { storeCartData } from "../Redux/ReduxSlices";
@@ -66,6 +67,7 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
           </Button>
         </HStack>
       </Center>
+      <Input type="textarea" placeholder="Notes" size={"sm"} />
     </Box>
   );
 }
