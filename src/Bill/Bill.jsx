@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { rupiah } from "../utils/currencyConvert";
 import {
   Table,
+  Button,
   Thead,
   Tbody,
   Tfoot,
@@ -12,6 +13,7 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  VStack
 } from "@chakra-ui/react";
 
 export default function Bill() {
@@ -26,22 +28,7 @@ export default function Bill() {
   const totalPrice = price + ppn + service;
 
   return getCartData.length !== 0 ? (
-    // <Stack>
-    //   <h1>
-    //     Price : <b>{rupiah(price)}</b>{" "}
-    //   </h1>
-    //   <h1>
-    //     PPN :<b>{rupiah((price * 10) / 100)} </b>
-    //   </h1>
-    //   <h1>
-    //     Service Charge : <b>{rupiah((price * 5) / 100)}</b>
-    //   </h1>
-    //   <h1>
-    //     Total Price : <b>{rupiah(totalPrice)}</b>{" "}
-    //   </h1>
-    // </Stack>
-
-    <Center>
+    <VStack ml={4}>
       <Table variant={"unstyled"} size={"sm"}>
         <Tr>
           <Td>Price</Td>
@@ -69,7 +56,10 @@ export default function Bill() {
           </Td>
         </Tr>
       </Table>
-    </Center>
+      <Button colorScheme="green" width="100%" mt={4}>
+        Checkout
+      </Button>
+    </VStack>
   ) : (
     ""
   );
