@@ -74,7 +74,7 @@ export default function Menu() {
     },
   ];
   return (
-    <SimpleGrid columns={5} spacing={5} w="75vw">
+    <SimpleGrid columns={3} spacing={5} w="75vw">
       {pizzaData.map((pizza) => (
         <Box>
           <Card cardContent={pizza}></Card>
