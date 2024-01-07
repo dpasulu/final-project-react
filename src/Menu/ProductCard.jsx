@@ -59,13 +59,16 @@ export default function ProductCard({ cardContent }) {
         <Stack mt="6" spacing="3">
           <Heading size="md">{cardContent.pizzaName}</Heading>
           <Text>{cardContent.pizzaDescription}</Text>
-          <Text color="red.600" fontSize="2xl" fontWeight="bold">
-            {rupiah(cardContent.pizzaPrice)}
-          </Text>
+          
         </Stack>
       </CardBody>
       <CardFooter>
-        <ButtonGroup spacing="2" width="100%">
+      {/* <Center> */}
+      <Stack ml="25%">
+      <Text color="red.600" fontSize="2xl" fontWeight="bold">
+            {rupiah(cardContent.pizzaPrice)}
+          </Text>
+        {/* <ButtonGroup spacing="2" width="100%"> */}
           <Button
             width="100%"
             colorScheme="blue"
@@ -80,7 +83,9 @@ export default function ProductCard({ cardContent }) {
           >
             Add to cart
           </Button>
-        </ButtonGroup>
+        {/* </ButtonGroup> */}
+        </Stack>
+        {/* </Center> */}
       </CardFooter>
     </Card>
   );

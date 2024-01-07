@@ -2,6 +2,7 @@ import { Stack } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { rupiah } from "../utils/currencyConvert";
+import { Button, Center, Table, Tr, Td } from "@chakra-ui/react";
 
 export default function Bill() {
   const getCartData = useSelector((state) => state.pizza.cartData);
@@ -15,20 +16,52 @@ export default function Bill() {
   const totalPrice = price + ppn + service;
 
   return getCartData.length !== 0 ? (
-    <Stack>
-      <h1>
-        Price : <b>{rupiah(price)}</b>{" "}
-      </h1>
-      <h1>
-        PPN :<b>{rupiah((price * 10) / 100)} </b>
-      </h1>
-      <h1>
-        Service Charge : <b>{rupiah((price * 5) / 100)}</b>
-      </h1>
-      <h1>
-        Total Price : <b>{rupiah(totalPrice)}</b>{" "}
-      </h1>
-    </Stack>
+      <Center>
+        <Stack>
+      <Table variant={"unstyled"} size={"sm"}>
+        <Tr>
+          <Td>Price</Td>
+          <Td>:</Td>
+          <Td>{rupiah(price)}</Td>
+        </Tr>
+        <Tr>
+          <Td>PPN</Td>
+          <Td>:</Td>
+          <Td>{rupiah((price * 10) / 100)}</Td>
+        </Tr>
+        <Tr>
+          <Td>Service Charge</Td>
+          <Td>:</Td>
+          <Td>{rupiah((price * 5) / 100)}</Td>
+        </Tr>
+        <Tr>
+          <Td>
+            <b>Total Price</b>
+          </Td>
+          <Td>:</Td>
+          <Td>
+            {" "}
+            <b>{rupiah(totalPrice)}</b>
+          </Td>
+        </Tr>
+      </Table>
+      <Button
+            width="50%"
+            colorScheme="green"
+            style={{ marginTop: "5%", width: "100%" }}
+            // onClick={() =>
+            //   addToCart(
+            //     cardContent.pizzaName,
+            //     1,
+            //     cardContent.pizzaPrice,
+            //     cardContent.img
+            //   )
+            // }
+          >
+            Checkout
+      </Button>
+      </Stack>
+    </Center>
   ) : (
     ""
   );

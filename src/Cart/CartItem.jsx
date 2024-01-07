@@ -57,7 +57,12 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
         {itemName} - {rupiah(itemPrice * itemQty)}
       </Heading>
       <Center>
-        <HStack>
+        <HStack spacing={8} style={{marginTop: 10, marginBottom: 15}}>
+          <Button 
+            colorScheme="red" onClick={() => dispatch(deleteCartData(itemName))}>
+            Remove
+          </Button>
+          <HStack>
           <Button onClick={() => reduceItemQty(itemName)}>-</Button>
           <Text pt="2" fontSize="sm">
             {itemQty}
@@ -65,9 +70,7 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
           <Button colorScheme="blue" onClick={() => addItemQty(itemName)}>
             +
           </Button>
-          <Button colorScheme="red" onClick={() => dispatch(deleteCartData(itemName))}>
-            Remove
-          </Button>
+          </HStack>
         </HStack>
       </Center>
       <Input type="textarea" placeholder="Notes" size={"sm"} />
