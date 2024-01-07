@@ -1,5 +1,14 @@
 import React from "react";
-import { Box, Heading, Text, Flex, Button, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Flex,
+  Button,
+  Image,
+  HStack,
+  Center,
+} from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { storeCartData } from "../Redux/ReduxSlices";
 import { rupiah } from "../utils/currencyConvert";
@@ -46,13 +55,17 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
       <Heading size="xs" textTransform="uppercase">
         {itemName} - {rupiah(itemPrice * itemQty)}
       </Heading>
-      <Button colorScheme="blue" onClick={() => addItemQty(itemName)}>
-        +
-      </Button>
-      <Text pt="2" fontSize="sm">
-        {itemQty}
-      </Text>
-      <Button onClick={() => reduceItemQty(itemName)}>-</Button>
+      <Center>
+        <HStack>
+          <Button onClick={() => reduceItemQty(itemName)}>-</Button>
+          <Text pt="2" fontSize="sm">
+            {itemQty}
+          </Text>
+          <Button colorScheme="blue" onClick={() => addItemQty(itemName)}>
+            +
+          </Button>
+        </HStack>
+      </Center>
     </Box>
   );
 }
