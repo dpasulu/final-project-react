@@ -14,7 +14,7 @@ import {
   Button,
   Image,
   Flex,
-  HStack,
+  VStack,
 } from "@chakra-ui/react";
 import { storeCartData } from "../Redux/ReduxSlices";
 import { rupiah } from "../utils/currencyConvert";
@@ -45,7 +45,7 @@ export default function ProductCard({ cardContent }) {
   };
 
   return (
-    <Card maxW="sm" minH="600px">
+    <Card maxW="sm" height="100%">
       <CardBody>
         <Stack>
           <Image
@@ -59,16 +59,13 @@ export default function ProductCard({ cardContent }) {
         <Stack mt="6" spacing="3">
           <Heading size="md">{cardContent.pizzaName}</Heading>
           <Text>{cardContent.pizzaDescription}</Text>
-          
         </Stack>
       </CardBody>
-      <CardFooter>
-      {/* <Center> */}
-      <Stack ml="25%">
-      <Text color="red.600" fontSize="2xl" fontWeight="bold">
+      <CardFooter width="100%">
+        <VStack width="100%">
+        <Text color="red.600" fontSize="2xl" fontWeight="bold" mb={5}>
             {rupiah(cardContent.pizzaPrice)}
           </Text>
-        {/* <ButtonGroup spacing="2" width="100%"> */}
           <Button
             width="100%"
             colorScheme="blue"
@@ -83,14 +80,10 @@ export default function ProductCard({ cardContent }) {
           >
             Add to cart
           </Button>
-        {/* </ButtonGroup> */}
-        </Stack>
-        {/* </Center> */}
+        </VStack>
       </CardFooter>
     </Card>
   );
-} 
-
-
+}
 
 //richie
