@@ -14,11 +14,9 @@ import CartItem from "./CartItem";
 export default function Cart() {
   const getCartData = useSelector((state) => state.pizza.cartData);
   return (
-    <Card ml={4}>
+    <Card ml={4} width="100%" minWidth="16rem" minHeight="10rem">
       <CardHeader>
-        <Heading size="md"> 
-          Cart
-        </Heading>
+        <Heading size="100%">Cart</Heading>
       </CardHeader>
       <CardBody>
         <Stack divider={<StackDivider />} spacing="4">
