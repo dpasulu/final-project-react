@@ -1,9 +1,9 @@
-import { Flex, HStack, Image, Input, Spacer } from "@chakra-ui/react";
+import { Flex, HStack, Image, Input, Button } from "@chakra-ui/react";
+import { Link as ReactRouterLink } from "react-router-dom";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { storeSearchKeyword } from "../Redux/ReduxSlices";
 import { Link } from "@chakra-ui/react";
-
 
 export default function NavBar() {
   const getSearchKeyword = useSelector((state) => state.pizza.searchKeyword);
@@ -25,7 +25,11 @@ export default function NavBar() {
         </Input>
 
         <HStack>
-          <Link href="https://google.com">Order History</Link>
+          <Button colorScheme="teal"><ReactRouterLink style={{color: "black"}}
+            to="/history"
+          >
+            Order History
+          </ReactRouterLink></Button>
           <Image
             src="https://cdn.icon-icons.com/icons2/2807/PNG/512/notification_bell_icon_178938.png"
             height={"24px"}

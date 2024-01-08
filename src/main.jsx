@@ -5,12 +5,25 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/Store.js";
 import App from "./App.jsx";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import OrderHistory from "./OrderHistory/OrderHistory.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/history",
+    element: <OrderHistory />
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <ChakraProvider>
-        <App />
+        <RouterProvider router={router} />
       </ChakraProvider>
     </Provider>
   </React.StrictMode>
