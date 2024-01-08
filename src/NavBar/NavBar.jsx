@@ -1,26 +1,44 @@
-import { HStack, Image, Input } from "@chakra-ui/react";
+import { Flex, HStack, Image, Input, Spacer } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { storeSearchKeyword } from "../Redux/ReduxSlices";
+import { Link } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export default function NavBar() {
   const getSearchKeyword = useSelector((state) => state.pizza.searchKeyword);
   const dispatch = useDispatch();
   return (
-    <HStack px={25} py={25}>
-      <Image
-        src="src/assets/RichieLogo.png"
-        alt="Dan Abramov"
-        height={"50px"}
-        marginRight={"10px"}
-      />
-      <Input
-        placeholder="Search for pizzas!"
-        width={"50%"}
-        onChange={(e) => dispatch(storeSearchKeyword(e.target.value))}
-      >
-        {console.log(getSearchKeyword)}
-      </Input>
-    </HStack>
+    <>
+      <HStack px={25} py={25} justifyContent={"space-between"}>
+        <Image
+          src="src/assets/RichieLogo.png"
+          height={"50px"}
+          marginRight={"10px"}
+        />
+        <Input
+          placeholder="Search for pizzas!"
+          width={"50%"}
+          onChange={(e) => dispatch(storeSearchKeyword(e.target.value))}
+        >
+          {console.log(getSearchKeyword)}
+        </Input>
+
+        <HStack>
+          <Link href="https://google.com">Order History</Link>
+          <Image
+            src="https://cdn.icon-icons.com/icons2/2807/PNG/512/notification_bell_icon_178938.png"
+            height={"24px"}
+            marginRight={"10px"}
+          />
+          <Image
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Nz4D-zzClf4w18aEET9wAGiNKuq6UNFpjZUmX0Kp-5JRT-HqHOGVkUBWwfbumKHK_z4&usqp=CAU"
+            height={"40px"}
+            marginRight={"10px"}
+          />
+          <p>Richie Martin</p>
+        </HStack>
+      </HStack>
+    </>
   );
 }
