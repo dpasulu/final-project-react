@@ -25,11 +25,11 @@ export default function NavBar() {
         </Input>
 
         <HStack>
-          <Button colorScheme="teal"><ReactRouterLink style={{color: "black"}}
-            to="/history"
-          >
-            Order History
-          </ReactRouterLink></Button>
+          <Button colorScheme="orange">
+            <ReactRouterLink style={{ color: "black" }} to="/history">
+              Order History
+            </ReactRouterLink>
+          </Button>
           <Image
             src="https://cdn.icon-icons.com/icons2/2807/PNG/512/notification_bell_icon_178938.png"
             height={"24px"}
