@@ -4,6 +4,7 @@ const initialState = {
   cartData: [],
   searchKeyword: "",
   orderPlace: [],
+  // orderId: 0
 };
 
 export const pizzaSlice = createSlice({
@@ -23,8 +24,9 @@ export const pizzaSlice = createSlice({
       state.searchKeyword = action.payload;
     },
     storeOrderPlace: (state, action) => {
-      state.orderPlace = state.cartData;
-      console.log("orderplace: "+JSON.stringify(state.orderPlace));
+      // state.orderId +=1;
+      state.orderPlace = [...state.orderPlace, {...state.cartData, orderId: state.orderPlace.length + 1}];
+      console.log(state.orderPlace);
       state.cartData = [];
     }
   },
