@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartData: [],
   searchKeyword: "",
+  orderPlace: [],
+  // orderId: 0
 };
 
 export const pizzaSlice = createSlice({
@@ -21,12 +23,15 @@ export const pizzaSlice = createSlice({
     storeSearchKeyword: (state, action) => {
       state.searchKeyword = action.payload;
     },
-    // storeCheckout: (state, action) => {
-    //   state.cartData = action.storeCheckout;
-    // },
+    storeOrderPlace: (state, action) => {
+      // state.orderId +=1;
+      state.orderPlace = [...state.orderPlace, {...state.cartData, orderId: state.orderPlace.length + 1}];
+      console.log(state.orderPlace);
+      state.cartData = [];
+    }
   },
 });
 
-export const { storeCartData, storeSearchKeyword, deleteCartData } =
+export const { storeCartData, storeSearchKeyword, deleteCartData, storeOrderPlace, } =
   pizzaSlice.actions;
 export default pizzaSlice.reducer;

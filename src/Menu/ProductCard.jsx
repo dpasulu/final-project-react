@@ -38,6 +38,7 @@ export default function ProductCard({ cardContent }) {
         pizzaName,
         quantity,
         price,
+        notes: "",
       };
 
       dispatch(storeCartData([...getCartData, newItem]));

@@ -1,7 +1,8 @@
 import { Center, Divider, Stack } from "@chakra-ui/react";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { rupiah } from "../utils/currencyConvert";
+import { storeOrderPlace } from "../Redux/ReduxSlices";
 import {
   Table,
   Button,
@@ -17,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 export default function Bill() {
+  const dispatch = useDispatch();
   const getCartData = useSelector((state) => state.pizza.cartData);
   const price = getCartData.reduce((acc, pizza) => {
     const itemTotalPrice = pizza.price * pizza.quantity;
@@ -56,8 +58,9 @@ export default function Bill() {
           </Td>
         </Tr>
       </Table>
-      <Button colorScheme="green" width="100%" mt={4}>
-        Checkout
+      <Button colorScheme="green" width="100%" mt={4} 
+        onClick={() => dispatch(storeOrderPlace())}>
+        Place order
       </Button>
     </VStack>
   ) : (

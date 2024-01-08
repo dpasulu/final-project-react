@@ -15,7 +15,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { storeCartData, deleteCartData } from "../Redux/ReduxSlices";
 import { rupiah } from "../utils/currencyConvert";
 
-export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
+export default function CartItem({ item }) {
+  const itemName = item.pizzaName 
+  const itemQty = item.quantity 
+  const itemPrice = item.price
+  const itemNotes = item.notes
+  const itemImage = ""
+  
   const dispatch = useDispatch();
   const getCartData = useSelector((state) => state.pizza.cartData);
 
@@ -47,6 +53,18 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
     )));
   };
 
+  const addNotes = (event) => {
+    const newCartData = getCartData.map((data) => {
+      if (data.pizzaName == itemName) {
+        return { ...data, notes: event.target.value };
+      }
+
+      return data;
+    });
+
+    dispatch(storeCartData(newCartData));
+  };
+
   return (
     <Box>
       <Box>
@@ -74,7 +92,7 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
           </HStack>
         </HStack>
       </Center>
-      <Input type="textarea" placeholder="Notes" size={"sm"} />
+      <Input type="textarea" placeholder="Notes" size={"sm"} onChange={addNotes} value={itemNotes} />
     </Box>
   );
 }

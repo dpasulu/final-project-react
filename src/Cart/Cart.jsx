@@ -24,9 +24,11 @@ export default function Cart() {
             <CartItem
               key={index}
               itemIndex={index}
-              itemName={item.pizzaName}
-              itemQty={item.quantity}
-              itemPrice={item.price}
+              item={item}
+              // itemName={item.pizzaName}
+              // itemQty={item.quantity}
+              // itemPrice={item.price}
+              // ItemNotes
             ></CartItem>
           ))}
         </Stack>
