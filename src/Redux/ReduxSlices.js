@@ -21,6 +21,9 @@ export const pizzaSlice = createSlice({
     storeSearchKeyword: (state, action) => {
       state.searchKeyword = action.payload;
     },
+    // storeCheckout: (state, action) => {
+    //   state.cartData = action.storeCheckout;
+    // },
   },
 });
 
