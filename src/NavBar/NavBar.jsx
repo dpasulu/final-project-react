@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { storeSearchKeyword } from "../Redux/ReduxSlices";
 import { Link } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+
 
 export default function NavBar() {
   const getSearchKeyword = useSelector((state) => state.pizza.searchKeyword);
