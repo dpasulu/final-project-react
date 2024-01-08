@@ -35,18 +35,16 @@ export default function CartItem({ itemName, itemQty, itemPrice, itemImage }) {
   const reduceItemQty = (name) => {
     const newCartData = getCartData.map((data) => {
       if (data.pizzaName == name) {
-        if (data.quantity > 1) {
           let currentQty = data.quantity;
-          return { ...data, quantity: (currentQty -= 1) };
+          return { ...data, quantity: currentQty - 1 };
         } else {
           return data;
         }
-      }
-
-      return data;
     });
 
-    dispatch(storeCartData(newCartData));
+    dispatch(storeCartData(newCartData.filter(data =>
+      data.quantity > 0
+    )));
   };
 
   return (
