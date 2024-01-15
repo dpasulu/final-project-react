@@ -74,6 +74,18 @@ export default function Menu() {
       pizzaPrice: 75000,
       pizzaDescription: "Pepperoni, keju mozzarella, saus pizza spesial",
     },
+    {
+      img: "https://static-cdn-ph.pizzahut.co.id/cdn-cgi/image/quality=100,format=auto,width=213/https://static-cdn-dev-temp.pizzahut.co.id/uploads/temp/pepperoni-1687316848318.png",
+      pizzaName: "Pepperoni",
+      pizzaPrice: 75000,
+      pizzaDescription: "Pepperoni, keju mozzarella, saus pizza spesial",
+    },
+    {
+      img: "https://static-cdn-ph.pizzahut.co.id/cdn-cgi/image/quality=100,format=auto,width=213/https://static-cdn-dev-temp.pizzahut.co.id/uploads/temp/pepperoni-1687316848318.png",
+      pizzaName: "Pepperoni",
+      pizzaPrice: 75000,
+      pizzaDescription: "Pepperoni, keju mozzarella, saus pizza spesial",
+    }
   ];
   return (
     <SimpleGrid columns={3} spacing={5} w="75vw">

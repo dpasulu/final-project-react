@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { rupiah } from "../utils/currencyConvert";
 import {
   Accordion,
   AccordionItem,
@@ -24,6 +25,7 @@ export default function OrderHistory() {
   return (
     <>
       <div>
+        <h1 style={{margin:20}}>Order History</h1>
         {getOrderData.map((data) => (
           // <Text>{data[0].pizzaName}</Text>
           <Accordion allowToggle>
@@ -53,7 +55,7 @@ export default function OrderHistory() {
                           <Th> {item.pizzaName}</Th>
                           <Th> {item.quantity}</Th>
                           <Th> {item.notes}</Th>
-                          <Th isNumeric> {item.price}</Th>
+                          <Th isNumeric> {rupiah(item.price)}</Th>
                         </Tr>
                       ))}
                     </Tbody>
